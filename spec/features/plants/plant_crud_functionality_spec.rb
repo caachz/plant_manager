@@ -35,10 +35,23 @@ RSpec.describe "A visitor can use all crud functionality on the plants DB" do
     fill_in "image", with: "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_rubber-tree_hover_mint_6430e356-673c-4af7-bdaf-3a002800dd1f_1024x1024.jpg?v=1578935840"
 
     click_on "Submit"
-    
+
     expect(current_path).to eq("/plants/#{plant.id}")
 
     expect(page).to have_content("Rubber Tree")
     expect(page).to have_content("My Fav Plant")
+  end
+
+  it "can be deleted" do
+    plant = Plant.create!(species: "Pothos", name: "Least favorite plant")
+
+    visit "/plants/#{plant.id}"
+
+    click_link("Delete Plant")
+
+    expect(current_path).to eq("/plants")
+
+    expect(page).to_not have_content("Pothos")
+    expect(page).to_not have_content("Least favorite plant")
   end
 end
