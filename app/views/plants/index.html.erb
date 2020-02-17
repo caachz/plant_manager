@@ -1,0 +1,7 @@
+<h1>Your Plants</h1>
+
+<p><%= link_to "Add Plant", "/plants/new" %></P><br>
+
+<%@plants.each do |plant|%>
+  <%= plant.species %>
+<%end%>

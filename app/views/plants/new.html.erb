@@ -1,0 +1,10 @@
+<h1>Add A New Plant To Your Household</h1>
+<%= form_tag("/plants", method: :post) do %><br>
+  <%= label_tag :image%><br>
+  <%= text_field_tag :image %><br>
+
+  <%= label_tag :species %><br>
+  <%= text_field_tag :species %><br>
+
+  <%= submit_tag 'Submit' %><br>
+<% end %>
