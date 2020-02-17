@@ -1,0 +1,5 @@
+<h1><%= @plant.name %></h1>
+
+<p><%=@plant.species%></p><br>
+<%= image_tag("#{@plant.image}") %><br>
+<%= link_to "Update Plant", "/plants/#{@plant.id}/edit" %><br>

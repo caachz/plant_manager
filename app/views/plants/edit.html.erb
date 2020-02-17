@@ -1,0 +1,10 @@
+<%= form_tag "/plants/#{@plant.id}", method: :patch do %><br>
+  <%= label_tag :name %><br>
+  <%= text_field_tag :name%><br>
+  <%= label_tag :image %><br>
+  <%= text_field_tag :image%><br>
+  <%= label_tag :species %><br>
+  <%= text_field_tag :species%><br>
+
+  <%= submit_tag 'Submit' %><br>
+<% end %>
