@@ -3,5 +3,7 @@
 <p><%= link_to "Add Plant", "/plants/new" %></P><br>
 
 <%@plants.each do |plant|%>
+  <%= image_tag("#{plant.image}") %><br>
+  <%= plant.name %>
   <%= plant.species %>
 <%end%>

@@ -35,6 +35,11 @@ class PlantsController < ApplicationController
     end
   end
 
+  def destory
+    Plant.destroy(params[:id])
+    redirect_to "/plants"
+  end
+
   private
   def plant_params
     params.permit(:species, :image, :name)

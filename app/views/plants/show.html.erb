@@ -3,3 +3,4 @@
 <p><%=@plant.species%></p><br>
 <%= image_tag("#{@plant.image}") %><br>
 <%= link_to "Update Plant", "/plants/#{@plant.id}/edit" %><br>
+<%= link_to 'Delete Plant', "/plants/#{@plant.id}", method: :delete %><br><br><br>

@@ -43,14 +43,17 @@ RSpec.describe "A visitor can use all crud functionality on the plants DB" do
   end
 
   it "can be deleted" do
-    plant = Plant.create!(species: "Pothos", name: "Least favorite plant")
+    plant1 = Plant.create!(species: "Pothos", name: "Least favorite plant")
+    plant2 = Plant.create!(species: "Rubber Tree", name: "little lovely")
 
-    visit "/plants/#{plant.id}"
+    visit "/plants/#{plant1.id}"
 
     click_link("Delete Plant")
 
     expect(current_path).to eq("/plants")
 
+    expect(page).to have_content("little lovely")
+    expect(page).to have_content("Rubber Tree")
     expect(page).to_not have_content("Pothos")
     expect(page).to_not have_content("Least favorite plant")
   end
